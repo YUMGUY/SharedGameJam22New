@@ -9,7 +9,15 @@ public class Rbt_Movement : MonoBehaviour
     public Vector3[] Waypoints;
     public int indexWaypoint;
     public bool reachedDestination;
+    public bool canMove = false;
     private Vector3 velocity = Vector3.zero;
+
+    // the angles or turns that the robot will make during his automatic journey
+    // will mae a Quaternion[] turn array later on
+    public Quaternion turn1 = Quaternion.Euler(0, 90, 0);
+    public Quaternion turn2 = Quaternion.Euler(0, 120, 0);
+    public Quaternion turn3 = Quaternion.Euler(0, 60, 0);
+    public bool turn2Started = false;
 
 
     // Start is called before the first frame update
@@ -17,45 +25,72 @@ public class Rbt_Movement : MonoBehaviour
     {
         indexWaypoint = 0;
         reachedDestination = false;
+        canMove = true;
+        StartCoroutine(RotationToAngle(turn1));
+        
+        
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if(reachedDestination == false)
+        if (reachedDestination == false && canMove == true)
         {
-                // the code for moving the robot automatically
-            if(Vector3.Distance(transform.position, Waypoints[indexWaypoint]) <= .1f)
+            // the code for moving the robot automatically
+            if (Vector3.Distance(transform.position, Waypoints[indexWaypoint]) <= .1f)
             {
                 ++indexWaypoint;
-               
-                // this avoid index out of bounds error
-                if(indexWaypoint >= Waypoints.Length)
+                if(indexWaypoint == 2 && !turn2Started)
+                {
+                    StartCoroutine(RotationToAngle(turn3));
+                    turn2Started = true;
+                }
+                //    this avoid index out of bounds error
+                if (indexWaypoint >= Waypoints.Length)
                 {
                     indexWaypoint = 2;
-                    print("after reaching destination" + indexWaypoint);
+                    print("finished after reaching destination" + indexWaypoint);
                     reachedDestination = true;
-                    
+
                 }
 
-                //if(indexWaypoint == 2)
-                //{
 
-                //}
-                //++indexWaypoint;
-                //print(indexWaypoint);
             }
-            // takes 5 seconds to smoothly move form each waypoint, **** WILL BE CHANGED ***********
-            transform.position = Vector3.SmoothDamp(transform.position, Waypoints[indexWaypoint], ref velocity, 5f);
+            //     takes 3 seconds to smoothly move from each waypoint, **** WILL BE CHANGED ***********
+            transform.position = Vector3.SmoothDamp(transform.position, Waypoints[indexWaypoint], ref velocity, 3f);
         }
+    }
 
-        if(reachedDestination == true)
+
+
+
+    /////////////////////////////////////////////////////////////////////// Code For Rotating to A Certain Angle /////////////////////////////////////////////////////////////////////////////
+
+    // smooth rotation
+    private IEnumerator RotationToAngle(Quaternion targetRotation)
+    {
+        // this is to disable the movement of the robot
+        yield return new WaitForSeconds(.1f);
+        canMove = false;
+
+
+        float elapsedTime = 0f;
+
+        Quaternion startingRotation = transform.rotation;
+        while (elapsedTime < 2f)
         {
-            print("YOU ARRIVED! VICTORY!");
+
+            elapsedTime += Time.deltaTime;
+            transform.rotation = Quaternion.Slerp(startingRotation, targetRotation, Mathf.SmoothStep(0,1,(elapsedTime/2f)));
+            yield return new WaitForEndOfFrame();
         }
         
+        // this is to enable the robot to move again
+        print("done");
+        canMove = true;
 
+      
     }
-       
+
 }
