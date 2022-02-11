@@ -14,10 +14,11 @@ public class Rbt_Movement : MonoBehaviour
 
     // the angles or turns that the robot will make during his automatic journey
     // will mae a Quaternion[] turn array later on
-    public Quaternion turn1 = Quaternion.Euler(0, 90, 0);
+    public Quaternion turn1 = Quaternion.Euler(0, 30, 0);
     public Quaternion turn2 = Quaternion.Euler(0, 120, 0);
-    public Quaternion turn3 = Quaternion.Euler(0, 60, 0);
+    public Quaternion turn3 = Quaternion.Euler(0, 80, 0);
     public bool turn2Started = false;
+    
 
 
     // Start is called before the first frame update
