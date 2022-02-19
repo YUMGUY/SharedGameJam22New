@@ -28,9 +28,11 @@ public class C_D_mechanics : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
             clickanddrag.transform.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
         }
 
+      // 
       if(isCompleted == true)
         {
             print("yay");
+            this.gameObject.SetActive(false);
         }
        
     }
