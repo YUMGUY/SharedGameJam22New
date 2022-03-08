@@ -1,7 +1,58 @@
 fileFormatVersion: 2
 guid: 840e0f4dfa3e91c4ab8be00488591eeb
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 8808500895310018032
+    second: Power_NotPressed
+  - first:
+      213: -1215934367037007036
+    second: Power_Pressed
+  - first:
+      213: -6400308888713984923
+    second: Temp_Meter1
+  - first:
+      213: 194816926638920988
+    second: Temp_Meter2
+  - first:
+      213: 2302884639950653192
+    second: Temp_Gauge
+  - first:
+      213: -1898969092681192384
+    second: Battery1_0
+  - first:
+      213: 5534151339164257863
+    second: Battery1_20
+  - first:
+      213: 8696942313840177090
+    second: Battery1_40
+  - first:
+      213: 5316669034187616707
+    second: Battery1_60
+  - first:
+      213: -7752661733957306193
+    second: Battery1_100
+  - first:
+      213: -830219696551389098
+    second: Battery2_20
+  - first:
+      213: -5259626651419132750
+    second: Battery2_0
+  - first:
+      213: 4897297955912301682
+    second: Battery2_40
+  - first:
+      213: -5842601533826614196
+    second: Battery2_60
+  - first:
+      213: -6996500348090888463
+    second: Battery2_80
+  - first:
+      213: -8812707756008315325
+    second: Battery2_100
+  - first:
+      213: -3661600310352966224
+    second: Battery1_80
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -89,11 +140,368 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Power_NotPressed
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 1585
+        width: 433
+        height: 353
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f5f9a415e41e3a70800000000000000
+      internalID: 8808500895310018032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Power_Pressed
+      rect:
+        serializedVersion: 2
+        x: 562
+        y: 1585
+        width: 433
+        height: 353
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44bd19ea222202fe0800000000000000
+      internalID: -1215934367037007036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Temp_Meter1
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 1171
+        width: 700
+        height: 334
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5648d6bd9f88d27a0800000000000000
+      internalID: -6400308888713984923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Temp_Meter2
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 1167
+        width: 700
+        height: 334
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c15db8c66f024b200800000000000000
+      internalID: 194816926638920988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Temp_Gauge
+      rect:
+        serializedVersion: 2
+        x: 1574
+        y: 1165
+        width: 38
+        height: 201
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80746faf06d75ff10800000000000000
+      internalID: 2302884639950653192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battery1_0
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 883
+        width: 511
+        height: 195
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04caa4fdba185a5e0800000000000000
+      internalID: -1898969092681192384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battery1_20
+      rect:
+        serializedVersion: 2
+        x: 634
+        y: 885
+        width: 511
+        height: 195
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74e432062514dcc40800000000000000
+      internalID: 5534151339164257863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battery1_40
+      rect:
+        serializedVersion: 2
+        x: 1184
+        y: 882
+        width: 511
+        height: 195
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cfe180c4feb1b870800000000000000
+      internalID: 8696942313840177090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battery1_60
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 639
+        width: 511
+        height: 195
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c17213515a98c940800000000000000
+      internalID: 5316669034187616707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battery1_100
+      rect:
+        serializedVersion: 2
+        x: 1186
+        y: 641
+        width: 511
+        height: 195
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa8f5b37a33096490800000000000000
+      internalID: -7752661733957306193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battery2_20
+      rect:
+        serializedVersion: 2
+        x: 634
+        y: 375
+        width: 511
+        height: 195
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 658958da5977a74f0800000000000000
+      internalID: -830219696551389098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battery2_0
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 375
+        width: 511
+        height: 195
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bc3cfe5d6d0207b0800000000000000
+      internalID: -5259626651419132750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battery2_40
+      rect:
+        serializedVersion: 2
+        x: 1188
+        y: 375
+        width: 511
+        height: 195
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27c366d3b82b6f340800000000000000
+      internalID: 4897297955912301682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battery2_60
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 104
+        width: 511
+        height: 195
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4cbc144cd8eaeea0800000000000000
+      internalID: -5842601533826614196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battery2_80
+      rect:
+        serializedVersion: 2
+        x: 634
+        y: 102
+        width: 511
+        height: 195
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fe4521a00077ee90800000000000000
+      internalID: -6996500348090888463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battery2_100
+      rect:
+        serializedVersion: 2
+        x: 1184
+        y: 101
+        width: 511
+        height: 195
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3466bc5dcf8f2b580800000000000000
+      internalID: -8812707756008315325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battery1_80
+      rect:
+        serializedVersion: 2
+        x: 634
+        y: 642
+        width: 511
+        height: 195
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bd83ffeae16f2dc0800000000000000
+      internalID: -3661600310352966224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: e382be5d7d3357a46a92f038877b9f4b
     internalID: 0
     vertices: []
     indices: 
