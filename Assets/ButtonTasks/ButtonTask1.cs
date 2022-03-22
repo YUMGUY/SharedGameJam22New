@@ -9,8 +9,7 @@ public class ButtonTask1 : MonoBehaviour
     private int playerInput = -1;
 
     // this is so that we can easily set the question's answer to either 0 or 1
-    //int[] copylist = new int[3] { 5, 0, 0 };
-    //private int[] answerList = new int[3] { 0, 1, 0 };
+   
     public int answerRequired = 0; // this will change depending on the index of the answerList
 
     // reference to the parent
@@ -20,6 +19,13 @@ public class ButtonTask1 : MonoBehaviour
     public GameObject rightButton;
     public GameObject textBoxQuestion;
     public TextMeshProUGUI questionContent;
+
+
+    // will be changed later/ IMPROVED
+    public TextMeshProUGUI leftButtonText;
+    public TextMeshProUGUI rightButtonText;
+
+    public bool playerAnswered = false;
 
     /* Changing the text of the buttons in order to fit the prompt
      */
@@ -36,6 +42,7 @@ public class ButtonTask1 : MonoBehaviour
         indexOfQuestionArray = Random.Range(0, 3);
         textBoxQuestion.GetComponent<TextMeshProUGUI>().text = buttonManagerScript.questions[indexOfQuestionArray];
         answerRequired = buttonManagerScript.answersManager[indexOfQuestionArray];
+        playerAnswered = false;
     }
 
     private void OnDisable()
@@ -44,6 +51,7 @@ public class ButtonTask1 : MonoBehaviour
        // textBoxQuestion.GetComponent<TextMeshProUGUI>().text = buttonManagerScript.questions[indexOfQuestionArray];
         // reset so that we can answer multiple
         playerInput = -1;
+      
     }
     private void Awake()
     {
@@ -54,12 +62,7 @@ public class ButtonTask1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       // copylist.CopyTo(answerList, 0);
-        //answerRequired = answerList[0];
-       // print(answerRequired);
-
-        
-
+   
         
         print(textBoxQuestion.name);
 
@@ -71,23 +74,34 @@ public class ButtonTask1 : MonoBehaviour
     void Update()
     {
 
-        if(playerInput == answerRequired)
+        if(playerInput == answerRequired && playerAnswered == true)
         {
             print("you chose the right answer");
             this.gameObject.SetActive(false);
         }
+
+        else if(playerAnswered == true && playerInput != answerRequired)
+        {
+            // add a punishment
+            print("you chose the wrong answer loser");
+            this.gameObject.SetActive(false);
+        }
+
+        
     }
 
     // maybe can just add a generic 
     public void OnClickLeft()
     {
         playerInput = 1;
-        print("you chose the answer on the left: 1");
+        playerAnswered = true;
+        //print("you chose the answer on the left: 1");
     }
 
     public void OnClickRight()
     {
         playerInput = 0;
-        print("you chose the answer on the right : 0");
+        playerAnswered = true;
+        //print("you chose the answer on the right : 0");
     }
 }
