@@ -43,7 +43,8 @@ public class C_D_mechanics : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     void Update()
     {
       if(isSelected == true)
-        {
+        {   
+            
             clickanddrag.transform.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
         }
 
@@ -56,12 +57,13 @@ public class C_D_mechanics : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
        
     }
    
-
+    // change this to be in the child script
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("it was clicked");
-        
+        Debug.Log(name + " was clicked");
+
         isSelected = true;
+        
     }
 
     public void OnPointerUp(PointerEventData eventData)
@@ -69,7 +71,7 @@ public class C_D_mechanics : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
         // the margin of error allowed for completing the task
         isSelected = false;
         print(positionDestination.localPosition);
-        if(Mathf.Abs(positionDestination.localPosition.x) <= 10f && Mathf.Abs(positionDestination.localPosition.y) <= 10f)
+        if(Mathf.Abs(positionDestination.localPosition.x) <= 12f && Mathf.Abs(positionDestination.localPosition.y) <= 12f)
         {
             isCompleted = true;
         }
