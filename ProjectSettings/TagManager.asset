@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ButtonManager
   - MemoryBlock
+  - ButtonTask1
   layers:
   - Default
   - TransparentFX

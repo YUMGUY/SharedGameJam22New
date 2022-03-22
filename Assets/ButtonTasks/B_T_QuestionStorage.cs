@@ -31,7 +31,7 @@ public class B_T_QuestionStorage : MonoBehaviour
             GameObject Btask1 = Instantiate(simpleBtask1,parentCanvas);
 
             // can change later, this is temporary
-            Btask1.transform.localPosition = new Vector2(Random.RandomRange(-200,200),Random.RandomRange(-200,200));
+            Btask1.transform.localPosition = new Vector2(Random.Range(-200,200),Random.Range(-200,200));
             timer = 5f;
         }
 

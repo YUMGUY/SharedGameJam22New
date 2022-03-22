@@ -415,7 +415,7 @@ GameObject:
   - component: {fileID: 2517394221494575616}
   m_Layer: 5
   m_Name: Button Task
-  m_TagString: Untagged
+  m_TagString: ButtonTask1
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
