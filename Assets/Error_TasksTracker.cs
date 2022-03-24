@@ -22,15 +22,11 @@ public class Error_TasksTracker : MonoBehaviour
         
         numberofTasks = memoryCount + buttonTask1Count;
 
-        print("the number of tasks is" + numberofTasks);
+       // print("the number of tasks is" + numberofTasks);
 
 
         // then add conditions when numberofTasks is above a certain number/threshold
 
-        if(numberofTasks > 5)
-        {
-            print("bruh");
-        }
 
 
     }

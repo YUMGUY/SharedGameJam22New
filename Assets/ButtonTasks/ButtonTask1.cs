@@ -72,7 +72,8 @@ public class ButtonTask1 : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {   
+        // dealing with the completion of the task, might just do destroy
 
         if(playerInput == answerRequired && playerAnswered == true)
         {
