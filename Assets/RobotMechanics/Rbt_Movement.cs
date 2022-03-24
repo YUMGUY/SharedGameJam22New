@@ -88,7 +88,7 @@ public class Rbt_Movement : MonoBehaviour
         }
         
         // this is to enable the robot to move again
-        print("done");
+       // print("done");
         canMove = true;
 
       

@@ -2,9 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.EventSystems;
 
-public class ButtonTask1 : MonoBehaviour
+public class ButtonTask1 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
+
+    // dragging the windows
+
+    // allows for good dragging
+    private float startPosY2;
+    private float startPosX2;
+    private bool isSelect;
+
     // input from the player from the 2 buttons: 0 is for right, 1 is for left
     private int playerInput = -1;
 
@@ -40,6 +49,7 @@ public class ButtonTask1 : MonoBehaviour
     {
         // rn only have 3 questions in storage
         indexOfQuestionArray = Random.Range(0, 3);
+        textBoxQuestion.GetComponent<TextMeshProUGUI>().color = Color.black;
         textBoxQuestion.GetComponent<TextMeshProUGUI>().text = buttonManagerScript.questions[indexOfQuestionArray];
         answerRequired = buttonManagerScript.answersManager[indexOfQuestionArray];
         playerAnswered = false;
@@ -63,19 +73,24 @@ public class ButtonTask1 : MonoBehaviour
     void Start()
     {
    
-        
-        print(textBoxQuestion.name);
-
-        // this is temporary
        
     }
 
     // Update is called once per frame
     void Update()
-    {   
-        // dealing with the completion of the task, might just do destroy
+    {
+        
+        // deals with selecting it
+        if (isSelect == true)
+        {
 
-        if(playerInput == answerRequired && playerAnswered == true)
+            Vector3 mousePos = Input.mousePosition;
+            //mousePos = Camera.main.ScreenToViewportPoint(mousePos);
+            this.gameObject.transform.localPosition = new Vector2(mousePos.x - startPosX2, mousePos.y - startPosY2);
+        }
+
+        // dealing with the completion of the task, might just do destroy
+        if (playerInput == answerRequired && playerAnswered == true)
         {
             print("you chose the right answer");
             this.gameObject.SetActive(false);
@@ -104,5 +119,24 @@ public class ButtonTask1 : MonoBehaviour
         playerInput = 0;
         playerAnswered = true;
         //print("you chose the answer on the right : 0");
+    }
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        Vector3 mousePos1 = Input.mousePosition;
+        //mousePos1 = Camera.main.ScreenToViewportPoint(mousePos1);
+        startPosX2 = mousePos1.x - this.transform.localPosition.x;
+        startPosY2 = mousePos1.y - this.transform.localPosition.y;
+
+        isSelect = true;
+
+
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        // the margin of error allowed for completing the task
+        isSelect = false;
+
+
     }
 }

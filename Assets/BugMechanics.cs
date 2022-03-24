@@ -11,6 +11,8 @@ public class BugMechanics : MonoBehaviour
     private Vector3 lastFrameVelocity;
     private Rigidbody2D rb;
 
+
+ 
     private void Awake()
     {
         chip = this.transform.parent.transform.GetChild(0).gameObject;
@@ -19,7 +21,7 @@ public class BugMechanics : MonoBehaviour
     private void OnEnable()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.velocity = new Vector2(100f,10f);
+     
     }
     void Start()
     {
@@ -40,7 +42,7 @@ public class BugMechanics : MonoBehaviour
         {
         Vector3 normal = (chip.transform.position - transform.position).normalized;
         rb.velocity = Vector2.Reflect(rb.velocity, normal);
-        print(rb.velocity);
+      
         }
       
     }
