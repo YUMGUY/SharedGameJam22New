@@ -7,13 +7,14 @@ public class BugMechanics : MonoBehaviour
     // Start is called before the first frame update
 
     public GameObject chip;
-
+    public GameObject parent;
     private Vector3 lastFrameVelocity;
     private Rigidbody2D rb;
 
     private void Awake()
     {
         chip = this.transform.parent.transform.GetChild(0).gameObject;
+        parent = this.transform.parent.gameObject;
     }
     private void OnEnable()
     {
@@ -33,8 +34,9 @@ public class BugMechanics : MonoBehaviour
 
 
     private void OnTriggerExit2D(Collider2D collision)
-    {   
-        if(collision.gameObject.name != chip.name)
+    {
+        //print(collision.gameObject.name);
+        if(collision.gameObject.name == parent.name)
         {
         Vector3 normal = (chip.transform.position - transform.position).normalized;
         rb.velocity = Vector2.Reflect(rb.velocity, normal);
