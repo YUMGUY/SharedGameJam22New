@@ -7,17 +7,37 @@ public class B_T_QuestionStorage : MonoBehaviour
     // Start is called before the first frame update
 
     // the index of each array correspond to each other, paired
+    [TextArea(3,5)]
     public string[] questions;
-    public int[] answersManager;
+    
+    // for yes or no questions
+    public string[] incorrectAnswersYesNo;
+    public string[] answersManagerYesNo;
+
+    // for the simple questions
+    public string[] incorrectNames;
+    public string[] correctNamesStorage;
+
+    public string correctName;
+
+    
+
+    
 
     public GameObject simpleBtask1;
 
     public Transform parentCanvas;
 
     public float timer;
+
+    private void Awake()
+    {
+        int index = Random.Range(0, 2);
+        correctName = correctNamesStorage[index];
+    }
     void Start()
     {
- 
+      
     }
 
     // Update is called once per frame
@@ -32,7 +52,7 @@ public class B_T_QuestionStorage : MonoBehaviour
 
             // can change later, this is temporary
             Btask1.transform.localPosition = new Vector2(Random.Range(-200,200),Random.Range(-200,200));
-            timer = 5f;
+            timer = 3;
         }
 
 

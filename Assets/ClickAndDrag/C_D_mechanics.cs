@@ -39,7 +39,7 @@ public class C_D_mechanics : MonoBehaviour/*, IPointerDownHandler, IPointerUpHan
     void Start()
     {
 
-       print( this.GetComponent<RectTransform>().anchoredPosition);
+     //  print( this.GetComponent<RectTransform>().anchoredPosition);
      
     }
 
@@ -61,7 +61,7 @@ public class C_D_mechanics : MonoBehaviour/*, IPointerDownHandler, IPointerUpHan
           // 
           if(isCompleted == true)
             {
-                print("yay completed task");
+               // print("yay completed task");
                 this.gameObject.SetActive(false);
             }
        

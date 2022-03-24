@@ -46,10 +46,10 @@ public class BugTask : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         
 
         h.CopyTo(array); // now array is filled with random, unique numbers
-        for(int i = 0; i < array.Length; ++i)
-        {
-            print(array[i]);
-        }
+        //for(int i = 0; i < array.Length; ++i)
+        //{
+        //    print(array[i]);
+        //}
         // creating the bugs
         for (int i = 0; i < 5; ++i)
         {
