@@ -29,11 +29,12 @@ public class B_T_QuestionStorage : MonoBehaviour
     public Transform parentCanvas;
 
     public float timer;
-
+    private float cooldown;
     private void Awake()
     {
         int index = Random.Range(0, 2);
         correctName = correctNamesStorage[index];
+        cooldown = timer;
     }
     void Start()
     {
@@ -52,7 +53,7 @@ public class B_T_QuestionStorage : MonoBehaviour
 
             // can change later, this is temporary
             Btask1.transform.localPosition = new Vector2(Random.Range(-200,200),Random.Range(-200,200));
-            timer = 3;
+            timer = cooldown;
         }
 
 

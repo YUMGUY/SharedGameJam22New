@@ -386,7 +386,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2517394221494575628, guid: 2a3cd207aeef27e4cac0802cb72bfc1b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2517394221494575629, guid: 2a3cd207aeef27e4cac0802cb72bfc1b, type: 3}
       propertyPath: m_Pivot.x
@@ -1829,7 +1829,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6781239408118953075, guid: b8ee9be77dd475c43983f0f1d2473deb, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6781239408118953076, guid: b8ee9be77dd475c43983f0f1d2473deb, type: 3}
       propertyPath: m_Pivot.x
@@ -1985,7 +1985,7 @@ MonoBehaviour:
   correctName: 
   simpleBtask1: {fileID: 2517394221494575628, guid: 2a3cd207aeef27e4cac0802cb72bfc1b, type: 3}
   parentCanvas: {fileID: 100980924}
-  timer: 3
+  timer: 10
 --- !u!1001 &1945059984
 PrefabInstance:
   m_ObjectHideFlags: 0

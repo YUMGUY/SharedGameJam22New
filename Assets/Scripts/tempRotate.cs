@@ -6,9 +6,11 @@ public class tempRotate : MonoBehaviour
 {
 
     private float rotZ;
+    public float temp;
     public float heat;
     public float rotSpeed;
-    
+    public Error_TasksTracker track;
+
     public RectTransform transform;
     
 
@@ -25,20 +27,36 @@ public class tempRotate : MonoBehaviour
     public void Update()
     {
         //rotZ += -Time.deltaTime * rotSpeed;
-        if(rotZ >= 0)
+        temp = track.getTaskCount();
+        if(rotZ >= 0  && rotZ <= 91)
         {
-            rotZ += -Time.deltaTime * rotSpeed;
-            heat = 100 - 50 * (1 - rotZ / 90);
+            if(temp == 0)
+            {
+                rotZ += Time.deltaTime * rotSpeed;
+            }
+            else
+            {
+                rotZ += -Time.deltaTime * rotSpeed;
+                heat = 100 - temp * (50 *  (1 - rotZ / 90));
+            }
+            
         }
         else
+        { 
             if(rotZ < 0 && rotZ > -90)
-        {
-            rotZ += -Time.deltaTime * rotSpeed;
-            heat = 50 - 50 * (rotZ / 90);
-        }
-        else
-        {
-            heat = -1;
+            {
+                if(temp == 0)
+                {
+                    rotZ += Time.deltaTime * rotSpeed;
+                }
+                else
+                {
+                    rotZ += -Time.deltaTime * rotSpeed;
+                    heat = 50 - temp * (50 * (rotZ / 90));
+                }
+            
+                
+            }
         }
         transform.rotation = Quaternion.Euler(0,0,rotZ);
     }

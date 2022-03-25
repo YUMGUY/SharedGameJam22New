@@ -42,4 +42,10 @@ public class Error_TasksTracker : MonoBehaviour
 
 
     }
+
+    public int getTaskCount()
+    {
+        return numberofTasks;
+    }
+
 }
