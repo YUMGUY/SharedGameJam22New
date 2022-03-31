@@ -15,7 +15,7 @@ public class ButtonTask1 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     private bool isSelect;
 
     // input from the player from the 2 buttons: 0 is for right, 1 is for left
-    private int playerInput = -1;
+   // private int playerInput = -1;
 
     private string playerInputString = "";
     // this is so that we can easily set the question's answer to either 0 or 1
@@ -105,7 +105,7 @@ public class ButtonTask1 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
 
         // reset so that we can answer multiple
-        playerInput = -1;
+        //playerInput = -1;
         playerInputString = "";
 
 
@@ -168,7 +168,7 @@ public class ButtonTask1 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     // maybe can just add a generic 
     public void OnClickLeft()
     {
-        playerInput = 1;
+        //playerInput = 1;
         playerAnswered = true;
      
         playerInputString = leftButtonText.text;
@@ -176,7 +176,7 @@ public class ButtonTask1 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     public void OnClickRight()
     {
-        playerInput = 0;
+        //playerInput = 0;
         playerAnswered = true;
      
         playerInputString = rightButtonText.text;

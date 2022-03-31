@@ -99,7 +99,6 @@ public class BugTask : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         {
 
             Vector3 mousePos = Input.mousePosition;
-            //mousePos = Camera.main.ScreenToViewportPoint(mousePos);
             this.gameObject.transform.localPosition = new Vector2(mousePos.x - startPosX,mousePos.y - startPosY);
         }
 

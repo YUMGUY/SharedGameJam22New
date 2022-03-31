@@ -8,6 +8,7 @@ TagManager:
   - MemoryBlock
   - ButtonTask1
   - BugTask
+  - wifi
   layers:
   - Default
   - TransparentFX
