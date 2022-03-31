@@ -44,26 +44,23 @@ public class BugTask : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         }
 
         
-
         h.CopyTo(array); // now array is filled with random, unique numbers
-        //for(int i = 0; i < array.Length; ++i)
-        //{
-        //    print(array[i]);
-        //}
+  
         // creating the bugs
-        for (int i = 0; i < 5; ++i)
-        {
 
-            int index = array[i];
-           
-            GameObject childBug = Instantiate(bug, this.transform);
-            childBug.GetComponent<Rigidbody2D>().velocity = velocities[index];
-        }
+            
         
        
     }
     private void OnEnable()
     {
+        // if battery level is low or malfunction state is true, create 10
+        for (int i = 0; i < 5; ++i)
+        {
+            int index = array[i];
+            GameObject childBug = Instantiate(bug, this.transform);
+            childBug.GetComponent<Rigidbody2D>().velocity = velocities[index];
+        }
         completedTask = false;
         sum = this.transform.childCount;
 

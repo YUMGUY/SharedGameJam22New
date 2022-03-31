@@ -5,11 +5,13 @@ using UnityEngine;
 public class Error_TasksTracker : MonoBehaviour
 {
 
-    int numberofTasks = 0;
+    public int numberofTasks = 0;
     int memoryCount;
     int buttonTask1Count;
     int bugtaskCount;
 
+
+    public int numberOfErrors = 0;
     // this is a flag for stopping everything when destination is reached
     public Rbt_Movement gameFlag;
     public bool gameFinished;

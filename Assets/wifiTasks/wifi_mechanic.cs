@@ -39,6 +39,11 @@ public class wifi_mechanic : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     {
         playerInput = "";
     }
+
+    private void OnEnable()
+    {
+        this.transform.localPosition = new Vector2(Random.Range(-200, 200), Random.Range(-200, 200));
+    }
     public void OnPointerDown(PointerEventData eventData) {
         Vector3 mousePos1 = Input.mousePosition;
         //mousePos1 = Camera.main.ScreenToViewportPoint(mousePos1);

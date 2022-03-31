@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class B_T_QuestionStorage : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class B_T_QuestionStorage : MonoBehaviour
 
     public string correctName;
 
+    // makes it display the right name
+    public GameObject customerName;
     
 
     
@@ -35,6 +38,8 @@ public class B_T_QuestionStorage : MonoBehaviour
         int index = Random.Range(0, 2);
         correctName = correctNamesStorage[index];
         cooldown = timer;
+
+        customerName.GetComponent<TextMeshProUGUI>().text = correctName;
     }
     void Start()
     {
