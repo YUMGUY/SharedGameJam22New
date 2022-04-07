@@ -187,6 +187,8 @@ public class ButtonTask1 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
         
     }
+
+    // change color to green( correct ) or red( incorrect ) when the task is completed
     private IEnumerator changeColor()
     {
         float elapsedTime = 0f;
@@ -207,7 +209,7 @@ public class ButtonTask1 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             yield return null;
         }
 
-
+        // when finished, set object to inactive or destroyed
         this.gameObject.SetActive(false);
     }
     // maybe can just add a generic 
