@@ -71,9 +71,13 @@ public class wifi_mechanic : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
 
     private void OnEnable()
     {
+        // randomize locations of wifi task
         this.transform.localPosition = new Vector2(Random.Range(-200, 200), Random.Range(-200, 200));
+
         answered = false;
     }
+
+    // DRAGGABLE CODE
     public void OnPointerDown(PointerEventData eventData) {
         Vector3 mousePos1 = Input.mousePosition;
         //mousePos1 = Camera.main.ScreenToViewportPoint(mousePos1);
@@ -88,6 +92,7 @@ public class wifi_mechanic : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
 
     }
 
+    // INPUT FIELD ON END 
     public void readInput(string s)
     {
         playerInput = s;
@@ -101,6 +106,7 @@ public class wifi_mechanic : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
         answered = true;
     }
 
+    // INPUT FIELD ON DESELECT
     public void deselected()
     {
         answered = false;

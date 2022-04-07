@@ -25,14 +25,13 @@ public class B_T_QuestionStorage : MonoBehaviour
     public GameObject customerName;
     
 
-    
-
     public GameObject simpleBtask1;
-
     public Transform parentCanvas;
 
+    [Header("Spawn Timer for Button Task")]
     public float timer;
     private float cooldown;
+
     private void Awake()
     {
         int index = Random.Range(0, 2);

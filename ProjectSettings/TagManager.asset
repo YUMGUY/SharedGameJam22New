@@ -9,6 +9,7 @@ TagManager:
   - ButtonTask1
   - BugTask
   - wifi
+  - captcha
   layers:
   - Default
   - TransparentFX

@@ -18,7 +18,10 @@ public class Rbt_Movement : MonoBehaviour
     public Quaternion turn2 = Quaternion.Euler(0, 120, 0);
     public Quaternion turn3 = Quaternion.Euler(0, 80, 0);
     public bool turn2Started = false;
-    
+
+
+    // making a parallel array of times for each point of the journey
+    public float[] times;
 
 
     // Start is called before the first frame update
