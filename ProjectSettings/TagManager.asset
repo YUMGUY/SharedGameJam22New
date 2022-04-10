@@ -10,6 +10,8 @@ TagManager:
   - BugTask
   - wifi
   - captcha
+  - error
+  - car
   layers:
   - Default
   - TransparentFX

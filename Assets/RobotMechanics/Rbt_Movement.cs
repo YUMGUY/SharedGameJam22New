@@ -47,7 +47,8 @@ public class Rbt_Movement : MonoBehaviour
                 ++indexWaypoint;
                 if(indexWaypoint == 2 && !turn2Started)
                 {
-                    StartCoroutine(RotationToAngle(turn3));
+                    // disabled as of now to test car event
+                    //StartCoroutine(RotationToAngle(turn3));
                     turn2Started = true;
                 }
                 //    this avoid index out of bounds error
@@ -95,6 +96,19 @@ public class Rbt_Movement : MonoBehaviour
         canMove = true;
 
       
+    }
+
+
+    // FOR CAR COLLISION, WORKS
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("car"))
+        {
+            other.GetComponent<Rigidbody>().AddExplosionForce(1000f, new Vector3(-1, -1f, -1f), 15f, 3f);
+            other.GetComponent<carMovement>().exploded = true;
+            print("you pushed it");
+        }
     }
 
 }

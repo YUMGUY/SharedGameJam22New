@@ -6,12 +6,17 @@ public class Error_TasksTracker : MonoBehaviour
 {
 
     public int numberofTasks = 0;
-    int memoryCount;
-    int buttonTask1Count;
-    int bugtaskCount;
+    // count of all the tasks in the scene that are active
+    [Header("Count of All Types of Tasks")]
+    public int memoryCount;
+    public int buttonTask1Count;
+    public int bugtaskCount;
+    public int wifiPWtaskCount;
+    public int captchaCount;
 
-
-    public int numberOfErrors = 0;
+    // make error window count visible
+    [SerializeField]
+    private int numberOfErrors = 0;
     // this is a flag for stopping everything when destination is reached
     public Rbt_Movement gameFlag;
     public bool gameFinished;
@@ -26,6 +31,7 @@ public class Error_TasksTracker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // a flag to determine whether or not to spawn the tasks in the future when the end screen comes up
         gameFinished = gameFlag.reachedDestination;
         
 
@@ -33,8 +39,11 @@ public class Error_TasksTracker : MonoBehaviour
         memoryCount = GameObject.FindGameObjectsWithTag("MemoryBlock").Length;
         buttonTask1Count = GameObject.FindGameObjectsWithTag("ButtonTask1").Length;
         bugtaskCount = GameObject.FindGameObjectsWithTag("BugTask").Length;
+        numberOfErrors = GameObject.FindGameObjectsWithTag("error").Length;
+        wifiPWtaskCount = GameObject.FindGameObjectsWithTag("wifi").Length;
+        captchaCount = GameObject.FindGameObjectsWithTag("captcha").Length;
 
-        numberofTasks = memoryCount + buttonTask1Count + bugtaskCount;
+        numberofTasks = memoryCount + buttonTask1Count + bugtaskCount + wifiPWtaskCount + captchaCount + numberOfErrors;
 
        // print("the number of tasks is" + numberofTasks);
 
@@ -49,5 +58,11 @@ public class Error_TasksTracker : MonoBehaviour
     {
         return numberofTasks;
     }
+
+    //public IEnumerator testCo()
+    //{
+    //    print("this is a testCoroutine");
+    //    yield return null;
+    //}
 
 }
