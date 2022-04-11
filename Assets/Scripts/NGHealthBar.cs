@@ -7,6 +7,7 @@ public class NGHealthBar : MonoBehaviour
 {
     public float hp;
     public float dps;
+    public float hotdps;
     public Text num;
     public Image active;
     public Sprite hb100;
@@ -15,19 +16,22 @@ public class NGHealthBar : MonoBehaviour
     public Sprite hb40;
     public Sprite hb20;
     public Sprite hb0;
+    public Error_TasksTracker track;
+    public tempRotate overheat;
     // Start is called before the first frame update
     void Start()
     {
         hp = 100;
-        active.sprite = hb80;
-        
+        active.sprite = hb100;
+        hotdps = 100 - overheat.heat;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        hp += -Time.deltaTime * dps;
+        hotdps = (100 - overheat.heat) / 5;
+        hp += -Time.deltaTime * Mathf.Sqrt(track.numberofTasks * hotdps);
         if (hp <= 0)
         {
             active.sprite = hb0;
