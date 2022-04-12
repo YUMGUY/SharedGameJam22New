@@ -71,7 +71,10 @@ public class ButtonTask1 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
 
         // change the text of the left and right buttons, choose which box will have the incorrect answer
-        // BELOW IS YES OR NO QUESTIONS
+
+        // ADD IN 2 MORE YES OR NO  QUESTIONS
+
+        // BELOW IS YES OR NO QUESTIONS FOR THE IF STATEMENT BELOW
         int chooseBox = Random.Range(0, 2);
         if (indexOfQuestionArray == 0 || indexOfQuestionArray == 1)
         {
@@ -90,7 +93,7 @@ public class ButtonTask1 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             }
         }
 
-        // for different types of questions
+        // for different types of questions, 
         if (indexOfQuestionArray == 2) // THE NAME QUESTION
         {
 
@@ -109,6 +112,13 @@ public class ButtonTask1 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
                 leftButtonText.text = correctNameTask;
             }
         }
+
+        // THE BEHAVIOR QUESTION, ALWAYS TO DELIVER IS THE CORRECT ANSWER
+
+
+        // THE DAY QUESTION
+        // WHAT DAY IS IT, shown on info page
+
 
         // basically hard code in questions
 

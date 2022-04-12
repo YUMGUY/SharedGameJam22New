@@ -22,6 +22,10 @@ public class Error_TasksTracker : MonoBehaviour
     public bool gameFinished;
     // Start is called before the first frame update
 
+    // handing the SPAWNING OF tasks
+    [Header("Types of Tasks To Spawn")]
+    [SerializeField]
+    public GameObject[] taskTypes;           // ERRORS COUNT AS TASKS TOO /////
    
     void Start()
     {

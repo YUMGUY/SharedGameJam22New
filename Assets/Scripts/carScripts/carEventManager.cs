@@ -7,8 +7,12 @@ public class carEventManager : MonoBehaviour
 
     public Rbt_Movement robotControl;
     private bool startCoFlag;
+
+    [Header("Phase Flags")]
     [SerializeField]
     private GameObject phase1;
+    [SerializeField]
+    private GameObject phase2;
 
     // dealing with failure
     public bool phase1Fail = false;
@@ -18,6 +22,7 @@ public class carEventManager : MonoBehaviour
     private void Awake()
     {
         phase1 = GameObject.Find("Phase 1 GameObject");
+        phase2 = GameObject.Find("Phase 2 GameObject");
     }
     void Start()
     {
@@ -26,6 +31,8 @@ public class carEventManager : MonoBehaviour
 
         // at the beginning
         phase1.SetActive(false);
+        phase2.SetActive(false);
+
         startCoFlag = false;
         
     }
@@ -39,6 +46,9 @@ public class carEventManager : MonoBehaviour
             StartCoroutine(carEvent());
             startCoFlag = true;
         }
+
+
+        
     }
 
     public IEnumerator carEvent()
@@ -50,11 +60,41 @@ public class carEventManager : MonoBehaviour
         while(phase1.activeInHierarchy == true)
         {
             // if phase1 fail == true, set robotcontrol.canMove = true, yield break
+            if(phase1Fail == true)
+            {
+                print("you failed PHASE 1");
+                robotControl.canMove = true;
+                // stops the coroutine
+                yield break;
+            }
             yield return null;
         }
+        print("PHASE 1 FINISHED");
+        phase2.SetActive(true);
+
+        // then do phase 2, TESTING
+        while(phase2.activeInHierarchy == true)
+        {
+            // IF PHASE 2 FAIL == TRUE, set robotcontrol.canMove = true, yield break
+            if(phase2Fail == true)
+            {
+                print("you failed PHASE 2, prepare for damage");
+                robotControl.canMove = true;
+                yield break;
+            }
+
+            yield return null;
+        }
+
+
+
+
+        
        
         print("robot can move now");
         robotControl.canMove = true;
         yield return null;
     }
+
+    // TO PUNISH THE PLAYER, lose 35% battery
 }

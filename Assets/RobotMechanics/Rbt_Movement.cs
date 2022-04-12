@@ -23,10 +23,13 @@ public class Rbt_Movement : MonoBehaviour
     // making a parallel array of times for each point of the journey
     public float[] times;
 
+    [Header("Taken Car Damage")]
+    public bool takenCarDamage;
 
     // Start is called before the first frame update
     void Start()
     {
+        takenCarDamage = false;
         indexWaypoint = 0;
         reachedDestination = false;
         canMove = true;
@@ -47,7 +50,7 @@ public class Rbt_Movement : MonoBehaviour
                 ++indexWaypoint;
                 if(indexWaypoint == 2 && !turn2Started)
                 {
-                    // disabled as of now to test car event
+                    // disabled as of now to test car event - 4/10 date
                     //StartCoroutine(RotationToAngle(turn3));
                     turn2Started = true;
                 }
@@ -108,6 +111,13 @@ public class Rbt_Movement : MonoBehaviour
             other.GetComponent<Rigidbody>().AddExplosionForce(1000f, new Vector3(-1, -1f, -1f), 15f, 3f);
             other.GetComponent<carMovement>().exploded = true;
             print("you pushed it");
+
+            // when robot collides with car, take damage once, set takenCarDamage = true
+            if(takenCarDamage == false)
+            {
+                // do something to battery;
+                takenCarDamage = true;
+            }
         }
     }
 
