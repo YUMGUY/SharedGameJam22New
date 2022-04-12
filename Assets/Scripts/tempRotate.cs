@@ -30,40 +30,72 @@ public class tempRotate : MonoBehaviour
         //print(rotZ);
         //rotZ += -Time.deltaTime * rotSpeed;
         temp = track.getTaskCount();
-        if(rotZ >= 0  && rotZ <= 91)
+        rotSpeed = 10 + temp;
+        if(temp > 0)  //this elif will decrement both rotation and heat
         {
-           // print("this is working");
-            if(temp == 0 && rotZ < 90) // I change it so that it rotates properly, we can change the conditions
+
+            if(heat <= 0)
             {
-                rotZ += Time.deltaTime * rotSpeed;
+                rotZ = -90;
+                heat = 0;
             }
             else
             {
-             //   print("decreasing -90");
-                rotZ += -Time.deltaTime * rotSpeed;
-                heat = 100 - temp * (50 *  (1 - rotZ / 90)); // with regards to heat, more tasks show up?
+                if (heat >= 50) 
+                {
+                    //print("function 1");
+                    rotZ += -Time.deltaTime * rotSpeed;
+                    heat = 100 - temp * (50 * (1 - rotZ / 90));
+                    
+                }
+                else
+                {
+                    //print("function 2");
+                    rotZ += -Time.deltaTime * rotSpeed;
+                    heat = 50 + temp * (50 * (rotZ / 90));
+                    
+                }
             }
+            
             
         }
         else
         {
-         //   print("this is not working");
-            if(rotZ < 0 && rotZ > -90) // change the conditions of this?
+            if (rotZ >= 90)//these are the elifs to increase the heat
             {
-                if(temp == 0) // change the conditions of this? add onto it
+                rotZ = 90;
+                heat = 100;
+            }
+            else
+            {
+                if (heat >= 50) 
                 {
+                    //print("function 3");
                     rotZ += Time.deltaTime * rotSpeed;
+                    heat = 100 +  (50 * (1 - rotZ / 90));
+                   
                 }
                 else
                 {
-                    rotZ += -Time.deltaTime * rotSpeed;
-                    heat = 50 - temp * (50 * (rotZ / 90));
+                    //print("function 4");
+                    rotZ += Time.deltaTime * rotSpeed;
+                    heat = 50 +  (50 * (rotZ / 90));
+                    
                 }
-            
-                
             }
         }
+       
         transform.rotation = Quaternion.Euler(0,0,rotZ);
     }
 
+
+    public float getHeat()
+    {
+        return heat;
+    }
+
+    public void setHeat(float damage)
+    {
+        heat = heat - damage;
+    }
 }
