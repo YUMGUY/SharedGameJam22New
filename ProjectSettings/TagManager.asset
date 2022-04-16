@@ -12,6 +12,9 @@ TagManager:
   - captcha
   - error
   - car
+  - trash
+  - recycle
+  - activator
   layers:
   - Default
   - TransparentFX

@@ -25,7 +25,7 @@ public class Rbt_Movement : MonoBehaviour
 
     [Header("Taken Car Damage")]
     public bool takenCarDamage;
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +33,7 @@ public class Rbt_Movement : MonoBehaviour
         indexWaypoint = 0;
         reachedDestination = false;
         canMove = true;
-        StartCoroutine(RotationToAngle(turn1));
+        StartCoroutine(RotationToAngle(turn1)); // for testing turns
         
         
     }
@@ -41,12 +41,12 @@ public class Rbt_Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (reachedDestination == false && canMove == true)
         {
             // the code for moving the robot automatically
             if (Vector3.Distance(transform.position, Waypoints[indexWaypoint]) <= .1f)
             {
+               // print("index changed");
                 ++indexWaypoint;
                 if(indexWaypoint == 2 && !turn2Started)
                 {
@@ -65,7 +65,7 @@ public class Rbt_Movement : MonoBehaviour
 
 
             }
-            //     takes 3 seconds to smoothly move from each waypoint, **** WILL BE CHANGED ***********
+            //   will take approximately 3 seconds, may take even longer, **** WILL BE CHANGED ***********
             transform.position = Vector3.SmoothDamp(transform.position, Waypoints[indexWaypoint], ref velocity, 3f);
         }
     }

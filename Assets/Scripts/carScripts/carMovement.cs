@@ -32,14 +32,14 @@ public class carMovement : MonoBehaviour
     }
 
     // WORKS, now instead of onMouse, do if position == position of robot// THIS IS FOR TESTING
-    private void OnMouseDown()
-    {
-        exploded = true;
-        this.GetComponent<Rigidbody>().AddExplosionForce(1000f, new Vector3(-1, -1f, -1f), 15f,3f);
+    //private void OnMouseDown()
+    //{
+    //    exploded = true;
+    //    this.GetComponent<Rigidbody>().AddExplosionForce(1000f, new Vector3(-1, -1f, -1f), 15f,3f);
         
-        this.GetComponent<Rigidbody>().useGravity = true;
-        print("clicked on");
-    }
+    //    this.GetComponent<Rigidbody>().useGravity = true;
+    //    print("clicked on");
+    //}
 
     
 }

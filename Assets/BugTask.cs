@@ -101,7 +101,7 @@ public class BugTask : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
         if (completedTask == true)
         {
-            gameObject.SetActive(false);
+            gameObject.SetActive(false); // set to destroy later on
         }
 
     }

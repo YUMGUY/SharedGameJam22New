@@ -13,6 +13,7 @@ public class Error_TasksTracker : MonoBehaviour
     public int bugtaskCount;
     public int wifiPWtaskCount;
     public int captchaCount;
+    public int recycleBinCount;
 
     // make error window count visible
     [SerializeField]
@@ -46,8 +47,9 @@ public class Error_TasksTracker : MonoBehaviour
         numberOfErrors = GameObject.FindGameObjectsWithTag("error").Length;
         wifiPWtaskCount = GameObject.FindGameObjectsWithTag("wifi").Length;
         captchaCount = GameObject.FindGameObjectsWithTag("captcha").Length;
+        recycleBinCount = GameObject.FindGameObjectsWithTag("recycle").Length;
 
-        numberofTasks = memoryCount + buttonTask1Count + bugtaskCount + wifiPWtaskCount + captchaCount + numberOfErrors;
+        numberofTasks = memoryCount + buttonTask1Count + bugtaskCount + wifiPWtaskCount + captchaCount + recycleBinCount + numberOfErrors;
 
        // print("the number of tasks is" + numberofTasks);
 

@@ -86,11 +86,11 @@ public class carEventManager : MonoBehaviour
             yield return null;
         }
 
-
+        print("PHASE 2 HAS FINISHED, HURRAY");
 
 
         
-       
+       // maybe do a waiting period before the robot can move, so that FOR SURE cars are out of the way
         print("robot can move now");
         robotControl.canMove = true;
         yield return null;
