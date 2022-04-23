@@ -24,7 +24,7 @@ public class arrowScroller : MonoBehaviour
         
         else
         {
-            transform.position -= new Vector3(0, 20 * Time.deltaTime);
+            transform.position -= new Vector3(0, 100 * Time.deltaTime); // changeable speed
         }
     }
 }

@@ -50,6 +50,7 @@ public class phase1part2 : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.J))
         {
+            print("pressing j");
             curMeter += incMeter;
             meterReduceTimer = 0;
         }

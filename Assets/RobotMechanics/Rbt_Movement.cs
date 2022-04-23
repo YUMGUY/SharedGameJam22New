@@ -5,12 +5,14 @@ using UnityEngine;
 public class Rbt_Movement : MonoBehaviour
 {
     // will use a waypoint system, CAN BE CHANGED TO VELOCITY SYSTEM
-
+    
     public Vector3[] Waypoints;
     public int indexWaypoint;
     public bool reachedDestination;
     public bool canMove = false;
     private Vector3 velocity = Vector3.zero;
+
+    int timeIndex;
 
     // the angles or turns that the robot will make during his automatic journey
     // will mae a Quaternion[] turn array later on
@@ -21,20 +23,41 @@ public class Rbt_Movement : MonoBehaviour
 
 
     // making a parallel array of times for each point of the journey
+    [Header("Time between Waypoints")]
     public float[] times;
+
+    // will change in according to the active state of the introductory page
+    [Header("The Game State")]
+    public bool gameStarted;
 
     [Header("Taken Car Damage")]
     public bool takenCarDamage;
-    
+
+
+    [Header("Victory Pan")]
+    public bool willPan;
+
+    [Header("Camera Animation Handler")]
+    public Animator childCamera;
+
     // Start is called before the first frame update
     void Start()
     {
+        // to be able to set the bool victorySet
+        childCamera = GetComponentInChildren<Animator>();
+
+
+        gameStarted = false;
         takenCarDamage = false;
         indexWaypoint = 0;
+        timeIndex = 0;
+
         reachedDestination = false;
         canMove = true;
         StartCoroutine(RotationToAngle(turn1)); // for testing turns
-        
+
+        // the camera movement at the victory end
+        willPan = false;
         
     }
 
@@ -48,6 +71,7 @@ public class Rbt_Movement : MonoBehaviour
             {
                // print("index changed");
                 ++indexWaypoint;
+                ++timeIndex;
                 if(indexWaypoint == 2 && !turn2Started)
                 {
                     // disabled as of now to test car event - 4/10 date
@@ -57,8 +81,9 @@ public class Rbt_Movement : MonoBehaviour
                 //    this avoid index out of bounds error
                 if (indexWaypoint >= Waypoints.Length)
                 {
-                    indexWaypoint = 2;
-                    print("finished after reaching destination" + indexWaypoint);
+                    indexWaypoint = 3; // have to hard code the index waypoint
+                    timeIndex = times.Length - 1;
+                    print("finished after reaching destination " + indexWaypoint);
                     reachedDestination = true;
 
                 }
@@ -66,7 +91,19 @@ public class Rbt_Movement : MonoBehaviour
 
             }
             //   will take approximately 3 seconds, may take even longer, **** WILL BE CHANGED ***********
-            transform.position = Vector3.SmoothDamp(transform.position, Waypoints[indexWaypoint], ref velocity, 3f);
+            transform.position = Vector3.SmoothDamp(transform.position, Waypoints[indexWaypoint], ref velocity, times[timeIndex]);
+        }
+
+        // this is for when the robot reaches the destination, panning around the robot
+        willPan = GetComponentInChildren<VictoryPan>().canPan;
+        if(willPan == true)
+        {
+            this.transform.Rotate(0, 5 * Time.deltaTime, 0);
+        }
+
+        if(reachedDestination == true)
+        {
+            childCamera.SetBool("victorySet", true);
         }
     }
 
