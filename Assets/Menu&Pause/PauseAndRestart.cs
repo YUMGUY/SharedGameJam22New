@@ -43,4 +43,9 @@ public class PauseAndRestart : MonoBehaviour
         Time.timeScale = 0f;
         willPause = true;
     }
+
+    public bool isPaused()
+    {
+        return willPause;
+    }
 }
