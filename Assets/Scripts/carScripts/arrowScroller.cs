@@ -14,7 +14,7 @@ public class arrowScroller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(hasStarted == false)
+        if(hasStarted == false) // change this later
         {
             if(Input.anyKeyDown)
             {

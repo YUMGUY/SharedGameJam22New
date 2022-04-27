@@ -23,7 +23,13 @@ public class wifi_mechanic : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     public TMP_InputField inputref;
     public wifi_pw_setter wifiTask;
 
+    public Image taskWindow;
+
     public bool answered;
+
+    private bool flashedRed = false;
+
+    
 
     void Start()
     {
@@ -31,7 +37,7 @@ public class wifi_mechanic : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
         // inputFieldref = this.transform.GetChild(0).gameObject.GetComponent<InputField>();
         child1 = this.transform.GetChild(0).gameObject;
         inputref = child1.GetComponent<TMP_InputField>();
-       
+        taskWindow = this.transform.GetChild(0).GetComponent<Image>();
 
     }
 
@@ -54,7 +60,13 @@ public class wifi_mechanic : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
         else if(playerInput != wifiTask.passwordUsed && answered == true)
         {
             // reset text
-            Debug.Log("wrong password");
+           // Debug.Log("wrong password");
+            if(flashedRed == false)
+            {
+                StartCoroutine(flashRedWifi());
+                flashedRed = true;
+            }
+
             inputref.text = "";
             answered = false;
         }
@@ -65,7 +77,7 @@ public class wifi_mechanic : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     {
         playerInput = "";
         inputref.text = "";
-
+        flashedRed = false;
         
     }
 
@@ -110,6 +122,34 @@ public class wifi_mechanic : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     public void deselected()
     {
         answered = false;
+
+    }
+
+    public IEnumerator flashRedWifi()
+    {
+        float duration = .5f;
+        float timer = 0f;
+
+        while(timer <= .5f)
+        {
+            timer += Time.deltaTime;
+            taskWindow.color = Color.Lerp(Color.white, Color.red, timer/duration);
+            yield return null;
+        }
+        timer = 0f;
+
+        while(timer <= .5f)
+        {
+            timer += Time.deltaTime;
+            taskWindow.color = Color.Lerp(Color.red,Color.white, timer / duration);
+            yield return null;
+        }
+
+
+        
+        print("done flash red");
+        flashedRed = false;
+        yield return null;
 
     }
 }

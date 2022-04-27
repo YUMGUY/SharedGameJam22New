@@ -34,7 +34,7 @@ public class B_T_QuestionStorage : MonoBehaviour
 
     private void Awake()
     {
-        int index = Random.Range(0, 2);
+        int index = Random.Range(0, correctNamesStorage.Length);
         correctName = correctNamesStorage[index];
         cooldown = timer;
 

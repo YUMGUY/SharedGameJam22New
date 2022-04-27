@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
+using TMPro;
 
 public class phase1Mechanics : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {   
@@ -22,6 +23,10 @@ public class phase1Mechanics : MonoBehaviour, IPointerDownHandler, IPointerUpHan
 
     // code for hold long click
     public UnityEvent holdLongClick;
+
+    [Header("Change Text Reference")]
+    public TextMeshProUGUI promptText;
+
     
 // Start is called before the first frame update
 
@@ -31,6 +36,7 @@ public class phase1Mechanics : MonoBehaviour, IPointerDownHandler, IPointerUpHan
         carEventOrigin = GameObject.Find("Car Event Manager").GetComponent<carEventManager>();
         pressedDown = false;
         phase1_barCompleted = false;
+        promptText = this.transform.parent.GetChild(1).GetComponent<TextMeshProUGUI>();
 
     }
 
@@ -48,6 +54,7 @@ public class phase1Mechanics : MonoBehaviour, IPointerDownHandler, IPointerUpHan
         {   
             if(holdLongClick != null)
             {
+                promptText.text = "Jumpstart the Hydroplasma Engine!";
                 holdLongClick.Invoke();
             }
            

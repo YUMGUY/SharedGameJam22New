@@ -15,6 +15,7 @@ TagManager:
   - trash
   - recycle
   - activator
+  - ads
   layers:
   - Default
   - TransparentFX

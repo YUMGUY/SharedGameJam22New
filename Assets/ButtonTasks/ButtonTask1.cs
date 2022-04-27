@@ -14,6 +14,8 @@ public class ButtonTask1 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     private float startPosY2;
     private float startPosX2;
     private bool isSelect;
+    [SerializeField]
+    private taskErrorBehavior positionChanged;
 
     // change the color of the task based on whether it is correct or not
     // 98,255,124,255
@@ -60,9 +62,10 @@ public class ButtonTask1 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     private void OnEnable()
     {   
         window = this.GetComponent<Image>();
+        positionChanged = GetComponent<taskErrorBehavior>();
         playerInputString = "";
         // rn only have 3 questions in storage
-        indexOfQuestionArray = Random.Range(0, 3);
+        indexOfQuestionArray = Random.Range(0, buttonManagerScript.questions.Length);
         textBoxQuestion.GetComponent<TextMeshProUGUI>().color = Color.black;
         textBoxQuestion.GetComponent<TextMeshProUGUI>().text = buttonManagerScript.questions[indexOfQuestionArray];
 
@@ -76,7 +79,7 @@ public class ButtonTask1 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
         // BELOW IS YES OR NO QUESTIONS FOR THE IF STATEMENT BELOW
         int chooseBox = Random.Range(0, 2);
-        if (indexOfQuestionArray == 0 || indexOfQuestionArray == 1)
+        if (indexOfQuestionArray == 0 || indexOfQuestionArray == 1 || indexOfQuestionArray == 2)
         {
             if (chooseBox == 0)
             {
@@ -93,21 +96,59 @@ public class ButtonTask1 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             }
         }
 
-        // for different types of questions, 
-        if (indexOfQuestionArray == 2) // THE NAME QUESTION
+        // better version of choosing question content for yes or no
+        switch (indexOfQuestionArray)
         {
+            case 3:
 
+                if(chooseBox == 0) 
+                {
+                    leftButtonText.text = buttonManagerScript.incorrectAnswersYesNo[indexOfQuestionArray];
+                    rightButtonText.text = buttonManagerScript.answersManagerYesNo[indexOfQuestionArray];
+                    correctAnswerString = buttonManagerScript.answersManagerYesNo[indexOfQuestionArray];
+                }
+
+                else
+                {
+                    rightButtonText.text = buttonManagerScript.incorrectAnswersYesNo[indexOfQuestionArray];
+                    leftButtonText.text = buttonManagerScript.answersManagerYesNo[indexOfQuestionArray];
+                    correctAnswerString = buttonManagerScript.answersManagerYesNo[indexOfQuestionArray];
+                }
+                break;
+
+            case 4:
+                if (chooseBox == 0)
+                {
+                    leftButtonText.text = buttonManagerScript.incorrectAnswersYesNo[indexOfQuestionArray];
+                    rightButtonText.text = buttonManagerScript.answersManagerYesNo[indexOfQuestionArray];
+                    correctAnswerString = buttonManagerScript.answersManagerYesNo[indexOfQuestionArray];
+                }
+
+                else
+                {
+                    rightButtonText.text = buttonManagerScript.incorrectAnswersYesNo[indexOfQuestionArray];
+                    leftButtonText.text = buttonManagerScript.answersManagerYesNo[indexOfQuestionArray];
+                    correctAnswerString = buttonManagerScript.answersManagerYesNo[indexOfQuestionArray];
+                }
+                break;
+        }
+                
+
+        // for different types of questions, 
+        if (indexOfQuestionArray == 5) // THE NAME QUESTION, update the index manually
+        {
+            // choose box == 0 means left box has wrong answer
             if (chooseBox == 0)
             {
                 // right now only have 2 incorrect names
-                int randomName = Random.Range(0, 2);
+                int randomName = Random.Range(0, buttonManagerScript.incorrectNames.Length);
                 leftButtonText.text = buttonManagerScript.incorrectNames[randomName];
                 rightButtonText.text = correctNameTask;
             }
 
             else
             {
-                int randomName = Random.Range(0, 2);
+                int randomName = Random.Range(0, buttonManagerScript.incorrectNames.Length);
                 rightButtonText.text = buttonManagerScript.incorrectNames[randomName];
                 leftButtonText.text = correctNameTask;
             }
@@ -169,6 +210,7 @@ public class ButtonTask1 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             Vector3 mousePos = Input.mousePosition;
             //mousePos = Camera.main.ScreenToViewportPoint(mousePos);
             this.gameObject.transform.localPosition = new Vector2(mousePos.x - startPosX2, mousePos.y - startPosY2);
+            positionChanged.startingPosition = this.transform.localPosition;
         }
 
         // dealing with the completion of the task, might just do destroy
