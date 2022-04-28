@@ -21,9 +21,14 @@ public class TaskSpawner : MonoBehaviour
     public GameObject captchaTask;
     public GameObject bugTask;
 
-
+    [Header("game started flag setter")]
+    public Intro_Flag_Mech introPagetaskref;
     ////////////////////////////////////////////////////////////
     // Start is called before the first frame update
+    private void Awake()
+    {
+        introPagetaskref = GameObject.Find("Introduction Page").GetComponent<Intro_Flag_Mech>();   
+    }
     void Start()
     {
         //if(taskManager.numberofTasks > 0)
@@ -43,7 +48,7 @@ public class TaskSpawner : MonoBehaviour
     {
         paused = pauseState.isPaused();
         standardTick += Time.deltaTime;
-        if(!paused)
+        if(!paused && introPagetaskref.gameStartedIntro == true) // add intro flag
         {
             
             TickDown(standardTick);

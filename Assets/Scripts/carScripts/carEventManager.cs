@@ -40,7 +40,7 @@ public class carEventManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // IF AT WAYPOINT (INSERT NUMBER), WORKS AS OF NOW, JUST NEED TO CHANGE WAYPOINTS AND TIMING ( current way point is 5 )
+        // IF AT WAYPOINT (INSERT NUMBER), WORKS AS OF NOW, JUST NEED TO CHANGE WAYPOINTS AND TIMING ( current way point is 6 )
         if(robotControl.indexWaypoint == 6 && startCoFlag == false)
         {
             StartCoroutine(carEvent());

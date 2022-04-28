@@ -43,6 +43,14 @@ public class Rbt_Movement : MonoBehaviour
     [Header("Camera Animation Handler")]
     public Animator childCamera;
 
+    [Header("game start flag")]
+    public Intro_Flag_Mech introPg;
+
+    private void Awake()
+    {
+        introPg = GameObject.Find("Introduction Page").GetComponent<Intro_Flag_Mech>() ;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -68,7 +76,7 @@ public class Rbt_Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (reachedDestination == false && canMove == true)
+        if (reachedDestination == false && canMove == true && introPg.gameStartedIntro == true)
         {
             // the code for moving the robot automatically
             if (Vector3.Distance(transform.position, Waypoints[indexWaypoint]) <= .1f)
@@ -84,14 +92,14 @@ public class Rbt_Movement : MonoBehaviour
 
                 if(indexWaypoint == 3 && !turn2Started)
                 {
-                    // disabled as of now to test car event - 4/10 date
+                   
                     StartCoroutine(RotationToAngle(turn2));
                     turn2Started = true;
                 }
                 //    this avoid index out of bounds error
                 if (indexWaypoint >= Waypoints.Length)
                 {
-                    indexWaypoint = 3; // have to hard code the index waypoint
+                    indexWaypoint = 8; // have to hard code the index waypoint
                     timeIndex = times.Length - 1;
                     print("finished after reaching destination " + indexWaypoint);
                     reachedDestination = true;
