@@ -11,15 +11,13 @@ public class TaskSpawner : MonoBehaviour
     public float timer;
     private float cd;
     private float standardTick;
-    private int taskLen;
     public PauseAndRestart pauseState;
     public bool paused;
     public bool check; //this is a testing variable
     public Transform parentCanvas;
     //the following are all the prefab objects for the tasks//
     public GameObject buttonTask;
-    public GameObject captchaTask;
-    public GameObject bugTask;
+
 
 
     ////////////////////////////////////////////////////////////
@@ -35,7 +33,6 @@ public class TaskSpawner : MonoBehaviour
         paused = false;
         standardTick = 0;
         check = false;
-        taskLen = taskListMaster.Length;
     }
 
     // Update is called once per frame
@@ -49,7 +46,7 @@ public class TaskSpawner : MonoBehaviour
             TickDown(standardTick);
             if(timer <= 0)
             {
-                randomTask = taskListMaster[(int)(Random.Range(0,taskLen))]; // From Timmy: Right now I understand that we are selecting the Button Manager, but why not have the taskListMaster array be filled
+                randomTask = taskListMaster[0]; // From Timmy: Right now I understand that we are selecting the Button Manager, but why not have the taskListMaster array be filled
                                                 // with the prefabs themselves?
                 Spawn(randomTask);              // since the tasks themselves have tags, then line 61 can just check if tasktype.tag == "ButtonTask1", etc
                 timer = cd;
@@ -61,9 +58,12 @@ public class TaskSpawner : MonoBehaviour
     // called to spawn a task
     void Spawn(GameObject taskType) // Overall this method is fine
     {
-        
-        GameObject Btask = Instantiate(taskType, parentCanvas);
-        Btask.transform.localPosition = new Vector2(Random.Range(-200, 200), Random.Range(-200, 200));
+        if(taskType.tag == "ButtonManager") // From Timmy: eventually gonna need an Ad's manager, Error Manager, etc, is it possible to just make the argument the task prefab itself?
+        {                                   // NOTE *********: if making the additional managers is no problem then you can go on ahead with this, just make sure
+                                            // to assign the managers with the appropriate tags, create the tags, etc
+            GameObject Btask = Instantiate(buttonTask, parentCanvas);
+            Btask.transform.localPosition = new Vector2(Random.Range(-200, 200), Random.Range(-200, 200));
+        }
     }
     // decrements the time till spawn
     void TickDown(float tick)
