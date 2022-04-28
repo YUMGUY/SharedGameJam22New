@@ -65,7 +65,7 @@ public class TaskSpawner : MonoBehaviour
                 randomTask = taskListMaster[(int)(Random.Range(0,taskLen))]; // From Timmy: Right now I understand that we are selecting the Button Manager, but why not have the taskListMaster array be filled
                                                 // with the prefabs themselves?
                 Spawn(randomTask);              // since the tasks themselves have tags, then line 61 can just check if tasktype.tag == "ButtonTask1", etc
-                if(health.hp >= 90)
+                if(health.hp >= 80)
                 {
                     timer = cd;
                 }
@@ -82,11 +82,11 @@ public class TaskSpawner : MonoBehaviour
                 else
                 if(health.hp >= 30)
                 {
-                    timer = 10;
+                    timer = 9;
                 }
                 else
                 {
-                    timer = 12;
+                    timer = 10;
                 }
                 
             }
