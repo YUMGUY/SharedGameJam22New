@@ -70,7 +70,7 @@ public class TaskSpawner : MonoBehaviour
                     timer = cd;
                 }
                 else
-                    if(health.hp >= 70)
+                    if(health.hp >= 60)
                 {
                     timer = 10;
                 }
