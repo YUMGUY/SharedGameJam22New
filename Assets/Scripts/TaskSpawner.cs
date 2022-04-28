@@ -5,10 +5,11 @@ using UnityEngine;
 public class TaskSpawner : MonoBehaviour
 {
     public GameObject[] taskListMaster;
-    //public GameObject[] taskListActive;  <--if implemented will be an active list of tasks we have active
+    public GameObject[] taskListExtra; 
     public GameObject randomTask;
     public Error_TasksTracker taskManager;
     public float timer;
+    public float extratimer; // for the smaller adds and such
     private float cd;
     private float standardTick;
     private int taskLen;
@@ -16,6 +17,7 @@ public class TaskSpawner : MonoBehaviour
     public bool paused;
     public bool check; //this is a testing variable
     public Transform parentCanvas;
+    public NGHealthBar health;
     //the following are all the prefab objects for the tasks//
     public GameObject buttonTask;
     public GameObject captchaTask;
@@ -74,5 +76,6 @@ public class TaskSpawner : MonoBehaviour
     void TickDown(float tick)
     {
         timer -= tick;
+        extratimer -= tick;
     }
 }
