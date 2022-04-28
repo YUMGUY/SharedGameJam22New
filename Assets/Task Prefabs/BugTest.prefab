@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: 6781239408118953077}
   - component: {fileID: 6781239408118953079}
   - component: {fileID: 6781239408118953064}
+  - component: {fileID: -3598799589680893390}
   m_Layer: 5
   m_Name: BugTest
   m_TagString: BugTask
@@ -255,6 +256,20 @@ MonoBehaviour:
   sum: 0
   titleText: {fileID: 0}
   bug: {fileID: 7580977655859303972, guid: b33db6449fc412c449a9e1b525decb20, type: 3}
+--- !u!114 &-3598799589680893390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6781239408118953075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 047f839930b2ae248ba74051f954cc91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpBarrefTask: {fileID: 0}
+  addHP: 11
 --- !u!1 &6781239408134736553
 GameObject:
   m_ObjectHideFlags: 0

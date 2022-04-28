@@ -14,6 +14,9 @@ public class Vic_or_Fail : MonoBehaviour
 
     public Rbt_Movement destFlag;
 
+    private GameObject rbtSound;
+    public AudioClip defeatSound;
+    private bool played;
 
     // victory remove hud alpha
     public GameObject hudCanvas;
@@ -21,6 +24,7 @@ public class Vic_or_Fail : MonoBehaviour
     private float timerH = 0;
     void Start()
     {
+        rbtSound = GameObject.Find("Robot (PLAYER)");
         destFlag = GameObject.Find("Robot (PLAYER)").GetComponent<Rbt_Movement>();
         hudCanvas = GameObject.FindGameObjectWithTag("hudCanvas");
         hpbarRefVicFail = GameObject.Find("HealthBar").GetComponent<NGHealthBar>();
@@ -36,11 +40,14 @@ public class Vic_or_Fail : MonoBehaviour
             hudCanvas.GetComponent<CanvasGroup>().alpha = Mathf.Lerp(1, 0, timerH / durationH);
         }
 
-        if (hpbarRefVicFail.hp <= 0)
+        if (hpbarRefVicFail.hp <= 0 && played == false)
         {
             // stop the robot from moving in the background
             destFlag.canMove = false;
+            
             this.transform.GetChild(1).gameObject.SetActive(true);
+            this.GetComponent<AudioSource>().PlayOneShot(defeatSound,1f);
+            played = true;
         }
     }
 

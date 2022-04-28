@@ -146,13 +146,14 @@ GameObject:
   - component: {fileID: 7763355337484108344}
   - component: {fileID: 7763355337484108295}
   - component: {fileID: 7763355337484108345}
+  - component: {fileID: 2613834166529625792}
   m_Layer: 5
   m_Name: wifiPW
   m_TagString: wifi
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7763355337484108294
 RectTransform:
   m_ObjectHideFlags: 0
@@ -171,7 +172,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -552, y: 129}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 320, y: 25}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &7763355337484108344
@@ -229,6 +230,20 @@ MonoBehaviour:
   wifiTask: {fileID: 0}
   taskWindow: {fileID: 0}
   answered: 0
+--- !u!114 &2613834166529625792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7763355337484108293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 047f839930b2ae248ba74051f954cc91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpBarrefTask: {fileID: 0}
+  addHP: 5
 --- !u!1 &7763355337818232327
 GameObject:
   m_ObjectHideFlags: 0
