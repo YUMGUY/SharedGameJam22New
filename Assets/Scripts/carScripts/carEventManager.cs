@@ -40,8 +40,8 @@ public class carEventManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // IF AT WAYPOINT (INSERT NUMBER), WORKS AS OF NOW, JUST NEED TO CHANGE WAYPOINTS AND TIMING ( current way point is 5 )
-        if(robotControl.indexWaypoint == 6 && startCoFlag == false)
+        // IF AT WAYPOINT (INSERT NUMBER), WORKS AS OF NOW, JUST NEED TO CHANGE WAYPOINTS AND TIMING
+        if(robotControl.indexWaypoint == 2 && startCoFlag == false)
         {
             StartCoroutine(carEvent());
             startCoFlag = true;
@@ -62,7 +62,7 @@ public class carEventManager : MonoBehaviour
             // if phase1 fail == true, set robotcontrol.canMove = true, yield break
             if(phase1Fail == true)
             {
-                print("you failed PHASE 1");   // make gameobject text that flashes ( setactive )
+                print("you failed PHASE 1");
                 robotControl.canMove = true;
                 // stops the coroutine
                 yield break;
@@ -78,7 +78,7 @@ public class carEventManager : MonoBehaviour
             // IF PHASE 2 FAIL == TRUE, set robotcontrol.canMove = true, yield break
             if(phase2Fail == true)
             {
-                print("you failed PHASE 2, prepare for damage");  // make gameobject text that flashes ( setactive )
+                print("you failed PHASE 2, prepare for damage");
                 robotControl.canMove = true;
                 yield break;
             }
@@ -86,12 +86,11 @@ public class carEventManager : MonoBehaviour
             yield return null;
         }
 
-        print("PHASE 2 HAS FINISHED, HURRAY, now wait 10 seconds");
+        print("PHASE 2 HAS FINISHED, HURRAY");
 
 
-     
-        // maybe do a waiting period before the robot can move, so that FOR SURE cars are out of the way
-        yield return new WaitForSeconds(10f);
+        
+       // maybe do a waiting period before the robot can move, so that FOR SURE cars are out of the way
         print("robot can move now");
         robotControl.canMove = true;
         yield return null;

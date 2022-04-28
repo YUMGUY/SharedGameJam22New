@@ -16,14 +16,11 @@ public class Rbt_Movement : MonoBehaviour
 
     // the angles or turns that the robot will make during his automatic journey
     // will mae a Quaternion[] turn array later on
-    public Quaternion turn1 = Quaternion.Euler(0, 90, 0);
-
-    public Quaternion turn2 = Quaternion.Euler(0, 0, 0);
-
-    public Quaternion turn3 = Quaternion.Euler(0, -90, 0);
+    public Quaternion turn1 = Quaternion.Euler(0, 30, 0);
+    public Quaternion turn2 = Quaternion.Euler(0, 120, 0);
+    public Quaternion turn3 = Quaternion.Euler(0, 80, 0);
     public bool turn2Started = false;
 
-    private bool turn1Started = false;
 
     // making a parallel array of times for each point of the journey
     [Header("Time between Waypoints")]
@@ -57,11 +54,10 @@ public class Rbt_Movement : MonoBehaviour
 
         reachedDestination = false;
         canMove = true;
-        //StartCoroutine(RotationToAngle(turn1)); // for testing turns
+        StartCoroutine(RotationToAngle(turn1)); // for testing turns
 
         // the camera movement at the victory end
         willPan = false;
-        turn1Started = false;
         
     }
 
@@ -76,16 +72,10 @@ public class Rbt_Movement : MonoBehaviour
                // print("index changed");
                 ++indexWaypoint;
                 ++timeIndex;
-
-                if(indexWaypoint == 1 && turn1Started == false)
-                {
-                    StartCoroutine(RotationToAngle(turn1));
-                }
-
-                if(indexWaypoint == 3 && !turn2Started)
+                if(indexWaypoint == 2 && !turn2Started)
                 {
                     // disabled as of now to test car event - 4/10 date
-                    StartCoroutine(RotationToAngle(turn2));
+                    //StartCoroutine(RotationToAngle(turn3));
                     turn2Started = true;
                 }
                 //    this avoid index out of bounds error

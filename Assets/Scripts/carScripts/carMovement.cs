@@ -7,30 +7,27 @@ public class carMovement : MonoBehaviour
     // Start is called before the first frame update
     private Rigidbody rb;
     public bool exploded;
-    private Vector3 speedCar = new Vector3(0, 0, 1.2f);
-    public Rbt_Movement rbtMove;
+
     //private float durationt = 100f;
    // private float timerer = 0f;
     void Start()
     {
         rb = this.GetComponent<Rigidbody>();
         exploded = false;
-        rbtMove = GameObject.Find("Robot (PLAYER)").GetComponent<Rbt_Movement>();
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if (!exploded && rbtMove.indexWaypoint >= 6)
-            rb.velocity = speedCar;
+        if (!exploded)
+            rb.velocity = transform.forward;
 
-        else if (rbtMove.indexWaypoint < 6)
+        else
         {
-            rb.velocity = Vector3.zero;
+            //timerer += Time.deltaTime;
+            //rb.velocity = Vector3.Lerp(transform.forward, Vector3.zero, timerer/durationt);
         }
-
-        
             
     }
 
