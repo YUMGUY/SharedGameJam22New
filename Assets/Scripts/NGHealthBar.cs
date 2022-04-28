@@ -87,7 +87,7 @@ public class NGHealthBar : MonoBehaviour
     
     }
 
-    void addHealth(float bonus)
+    public void addHealth(float bonus)
     {
         hp += bonus;
     }

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7813575120972849977}
   - component: {fileID: 7813575120972849983}
   - component: {fileID: 7813575120972849982}
+  - component: {fileID: 9131764411078826201}
   m_Layer: 5
   m_Name: RecycleTask
   m_TagString: recycle
@@ -105,6 +106,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c38dea533bf3df744b3a5c2698461105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &9131764411078826201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7813575120972849979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 047f839930b2ae248ba74051f954cc91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpBarrefTask: {fileID: 0}
+  addHP: 10
 --- !u!1 &7813575121696160547
 GameObject:
   m_ObjectHideFlags: 0

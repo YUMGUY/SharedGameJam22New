@@ -146,6 +146,7 @@ GameObject:
   - component: {fileID: 8652773408446905059}
   - component: {fileID: 8652773408446905057}
   - component: {fileID: 8652773408446905056}
+  - component: {fileID: -1551338286968844014}
   m_Layer: 5
   m_Name: 'Captcha Task '
   m_TagString: captcha
@@ -233,6 +234,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &-1551338286968844014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8652773408446905061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 047f839930b2ae248ba74051f954cc91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpBarrefTask: {fileID: 0}
+  addHP: 5
 --- !u!1 &8652773408452244897
 GameObject:
   m_ObjectHideFlags: 0

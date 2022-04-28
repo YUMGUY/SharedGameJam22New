@@ -87,7 +87,7 @@ public class BugTask : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
        // the chip is remaining only
         if (numberOfActiveChildren == 2)
         {
-            print("this bug task is completed");
+          //  print("this bug task is completed");
             completedTask = true;
         }
 
