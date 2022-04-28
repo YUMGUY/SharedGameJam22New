@@ -35,6 +35,7 @@ public class Rbt_Movement : MonoBehaviour
 
     [Header("Taken Car Damage")]
     public bool takenCarDamage;
+    public NGHealthBar hpRefRobot;
 
 
     [Header("Victory Pan")]
@@ -55,6 +56,7 @@ public class Rbt_Movement : MonoBehaviour
     void Start()
     {
         // to be able to set the bool victorySet
+        hpRefRobot = GameObject.Find("HealthBar").GetComponent<NGHealthBar>();
         childCamera = GetComponentInChildren<Animator>();
 
 
@@ -171,6 +173,7 @@ public class Rbt_Movement : MonoBehaviour
             if(takenCarDamage == false)
             {
                 // do something to battery;
+                hpRefRobot.hp -= 20f;
                 takenCarDamage = true;
             }
         }
