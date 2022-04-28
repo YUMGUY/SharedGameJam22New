@@ -1338,7 +1338,7 @@ GameObject:
   - component: {fileID: 464490675}
   m_Layer: 0
   m_Name: BugTask_Manager
-  m_TagString: BugManager
+  m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4586,13 +4586,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   taskListMaster:
-  - {fileID: 2517394221494575628, guid: 2a3cd207aeef27e4cac0802cb72bfc1b, type: 3}
-  - {fileID: 8652773408446905061, guid: 6c87c1f9e540bf7408056088368b04ac, type: 3}
-  - {fileID: 6781239408118953075, guid: b8ee9be77dd475c43983f0f1d2473deb, type: 3}
-  - {fileID: 2644950627095334335, guid: 5dc5169dac4c9b9499b0360a596c30a6, type: 3}
-  - {fileID: 7813575120972849979, guid: 7dc61f8b970d3a14fad641e8dfe00075, type: 3}
-  - {fileID: 2506591018904427828, guid: 57b7fd7cc8f383c46a922b34df112c74, type: 3}
-  - {fileID: 4359438319883719359, guid: 8df4ad2ab4fdc8a4493d6668a3f7e2eb, type: 3}
+  - {fileID: 1910941646}
   randomTask: {fileID: 0}
   taskManager: {fileID: 786703344}
   timer: 5
@@ -4601,8 +4595,6 @@ MonoBehaviour:
   check: 0
   parentCanvas: {fileID: 100980924}
   buttonTask: {fileID: 2517394221494575628, guid: 2a3cd207aeef27e4cac0802cb72bfc1b, type: 3}
-  captchaTask: {fileID: 8652773408446905061, guid: 6c87c1f9e540bf7408056088368b04ac, type: 3}
-  bugTask: {fileID: 6781239408118953075, guid: b8ee9be77dd475c43983f0f1d2473deb, type: 3}
 --- !u!4 &1510633445 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 908156749618089116, guid: 860b9fac085242f40a524477e0b89457, type: 3}
