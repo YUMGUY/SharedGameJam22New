@@ -53,10 +53,10 @@ public class B_T_QuestionStorage : MonoBehaviour
 
         if(timer <= 0)
         {
-            GameObject Btask1 = Instantiate(simpleBtask1,parentCanvas);
+            //GameObject Btask1 = Instantiate(simpleBtask1,parentCanvas);
 
             // can change later, this is temporary
-            Btask1.transform.localPosition = new Vector2(Random.Range(-200,200),Random.Range(-200,200));
+          //  Btask1.transform.localPosition = new Vector2(Random.Range(-200,200),Random.Range(-200,200));
             timer = cooldown;
         }
 
