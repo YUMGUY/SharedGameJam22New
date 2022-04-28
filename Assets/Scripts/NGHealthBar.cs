@@ -26,7 +26,7 @@ public class NGHealthBar : MonoBehaviour
         rbt = GameObject.FindGameObjectWithTag("Player").GetComponent<Rbt_Movement>();
         hp = 100;
         active.sprite = hb100;
-        hotdps = 100 - overheat.heat;
+        hotdps = (float)(0.1 * (100 - overheat.heat));
 
     }
 
@@ -47,7 +47,7 @@ public class NGHealthBar : MonoBehaviour
                     }
                     else
                     {
-                        hotdps = (100 - overheat.heat) / 5;
+                        hotdps = (100 - overheat.heat) / 10;
                                 hp += -Time.deltaTime * Mathf.Sqrt(track.numberofTasks * hotdps);
                                 if (hp <= 0)
                                 {

@@ -30,7 +30,7 @@ public class tempRotate : MonoBehaviour
         //print(rotZ);
         //rotZ += -Time.deltaTime * rotSpeed;
         temp = track.getTaskCount();
-        rotSpeed = 10 + temp;
+        rotSpeed =  2 + temp;
         if(temp > 0)  //this elif will decrement both rotation and heat
         {
 
