@@ -16,6 +16,7 @@ TagManager:
   - recycle
   - activator
   - ads
+  - BugManager
   layers:
   - Default
   - TransparentFX
