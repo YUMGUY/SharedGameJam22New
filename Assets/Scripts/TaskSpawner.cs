@@ -11,8 +11,10 @@ public class TaskSpawner : MonoBehaviour
     public float timer;
     public float extratimer; // for the smaller adds and such
     private float cd;
+    private float ecd;
     private float standardTick;
     private int taskLen;
+    private int extraLen;
     public PauseAndRestart pauseState;
     public bool paused;
     public bool check; //this is a testing variable
@@ -38,11 +40,15 @@ public class TaskSpawner : MonoBehaviour
 
         //}
         //GameObject[] taskListMaster = { };
+        timer = 7;
+        ecd = 5;
         cd = timer;
+        ecd = extratimer;
         paused = false;
         standardTick = 0;
         check = false;
         taskLen = taskListMaster.Length;
+        extraLen = taskListExtra.Length;
     }
 
     // Update is called once per frame
@@ -61,6 +67,12 @@ public class TaskSpawner : MonoBehaviour
                 Spawn(randomTask);              // since the tasks themselves have tags, then line 61 can just check if tasktype.tag == "ButtonTask1", etc
                 timer = cd;
             }
+            if(extratimer <= 0)
+            {
+                randomTask = taskListExtra[(int)(Random.Range(0, extraLen))];
+                AddSpawn(randomTask);
+                extratimer = ecd;
+            }
         }
         standardTick = 0;
 
@@ -71,6 +83,13 @@ public class TaskSpawner : MonoBehaviour
         
         GameObject Btask = Instantiate(taskType, parentCanvas);
         Btask.transform.localPosition = new Vector2(Random.Range(-200, 200), Random.Range(-200, 200));
+    }
+
+    void AddSpawn(GameObject taskType) // Overall this method is fine
+    {
+
+        GameObject Btask = Instantiate(taskType, parentCanvas);
+        Btask.transform.localPosition = new Vector2(Random.Range(-200, 200), Random.Range(-200, 100));
     }
     // decrements the time till spawn
     void TickDown(float tick)
