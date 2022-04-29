@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpBarrefTask: {fileID: 0}
-  addHP: 15
+  addHP: 2
 --- !u!1 &7813575121696160547
 GameObject:
   m_ObjectHideFlags: 0

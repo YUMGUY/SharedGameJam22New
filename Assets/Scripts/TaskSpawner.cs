@@ -27,6 +27,9 @@ public class TaskSpawner : MonoBehaviour
 
     [Header("game started flag setter")]
     public Intro_Flag_Mech introPagetaskref;
+
+    [Header("Game End Reference")]
+    public Rbt_Movement rbtFinish;
     ////////////////////////////////////////////////////////////
     // Start is called before the first frame update
     private void Awake()
@@ -56,7 +59,7 @@ public class TaskSpawner : MonoBehaviour
     {
         paused = pauseState.isPaused();
         standardTick += Time.deltaTime;
-        if(!paused && introPagetaskref.gameStartedIntro == true) // add intro flag
+        if(!paused && introPagetaskref.gameStartedIntro == true && rbtFinish.reachedDestination == false) // add intro flag
         {
             
             TickDown(standardTick);
@@ -65,19 +68,24 @@ public class TaskSpawner : MonoBehaviour
                 randomTask = taskListMaster[(int)(Random.Range(0,taskLen))]; // From Timmy: Right now I understand that we are selecting the Button Manager, but why not have the taskListMaster array be filled
                                                 // with the prefabs themselves?
                 Spawn(randomTask);              // since the tasks themselves have tags, then line 61 can just check if tasktype.tag == "ButtonTask1", etc
-                if(health.hp >= 90)
+                if(health.hp >= 95)
                 {
                     timer = cd;
                 }
                 else
-                    if(health.hp >= 60)
+                    if(health.hp >= 85) // trying out balancing , instead of hp ( which is variable so unreliable?, we can use waypoints so we know for sure difficulty scales linearly
                 {
-                    timer = 10;
+                    timer = 3.5f;           // also instead of having a set spawn rate for all, maybe use certain elements(the prefabs) have lower timers than others
+                }
+
+                else if(health.hp >= 70)
+                {
+                    timer = 3f;
                 }
                 else
                     if(health.hp >= 50)
                 {
-                    timer = 8;
+                    timer = 7;
                 }
                 else
                 if(health.hp >= 30)
@@ -90,7 +98,7 @@ public class TaskSpawner : MonoBehaviour
                 }
                 
             }
-            if(extratimer <= 0 && health.hp <= 50)
+            if(extratimer <= 0 && health.hp <= 60)
             {
                 randomTask = taskListExtra[(int)(Random.Range(0, extraLen))];
                 AddSpawn(randomTask);
@@ -105,7 +113,7 @@ public class TaskSpawner : MonoBehaviour
     {
         
         GameObject Btask = Instantiate(taskType, parentCanvas);
-        Btask.transform.localPosition = new Vector2(Random.Range(-200, 200), Random.Range(-200, 200));
+        Btask.transform.localPosition = new Vector2(Random.Range(-200, 200), Random.Range(-200, 200)); 
     }
 
     void AddSpawn(GameObject taskType) // Overall this method is fine

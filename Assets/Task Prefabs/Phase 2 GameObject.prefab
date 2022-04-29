@@ -983,7 +983,6 @@ GameObject:
   - component: {fileID: 4233781088226355037}
   - component: {fileID: 4233781088226355036}
   - component: {fileID: 4233781088226355034}
-  - component: {fileID: 3761637005590579592}
   m_Layer: 5
   m_Name: Phase 2 GameObject
   m_TagString: Untagged
@@ -1066,20 +1065,6 @@ MonoBehaviour:
   carEventOrigin2: {fileID: 0}
   completedArrow: 0
   missedArrow: 0
---- !u!114 &3761637005590579592
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4233781088226355038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 047f839930b2ae248ba74051f954cc91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hpBarrefTask: {fileID: 0}
-  addHP: 25
 --- !u!1 &4233781088750160033
 GameObject:
   m_ObjectHideFlags: 0

@@ -55,6 +55,10 @@ public class BugMechanics : MonoBehaviour
        
     }
 
+    private void OnBecameInvisible()
+    {
+        gameObject.SetActive(false);
+    }
 
 
 }

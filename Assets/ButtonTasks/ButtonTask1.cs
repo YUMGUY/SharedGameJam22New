@@ -58,6 +58,9 @@ public class ButtonTask1 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     // this might change to just making an array of strings in here instead of calling upon another class
     public B_T_QuestionStorage buttonManagerScript;
 
+
+    [SerializeField]
+    private NGHealthBar hpBarButtonref;
     // OVERALL THIS IS HARDCODED SO THIS IS REALLY TEDIOUS.
     private void OnEnable()
     {   
@@ -196,7 +199,7 @@ public class ButtonTask1 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     // Start is called before the first frame update
     void Start()
     {
-
+        hpBarButtonref = GameObject.Find("HealthBar").GetComponent<NGHealthBar>();
 
     }
 
@@ -259,6 +262,11 @@ public class ButtonTask1 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             }
             
             yield return null;
+        }
+
+        if(correct == true)
+        {
+            hpBarButtonref.addHealth(3f);
         }
 
         // when finished, set object to inactive or destroyed

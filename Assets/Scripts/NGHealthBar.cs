@@ -48,7 +48,12 @@ public class NGHealthBar : MonoBehaviour
                     else
                     {
                         hotdps = Mathf.Abs((100 - overheat.heat) / 10);
-                                hp += -Time.deltaTime * Mathf.Sqrt(track.numberofTasks * hotdps);
+                        
+                        if(hotdps >= 2.5f) // introduce a cap, maybe better
+                        {
+                            hotdps = 2.5f;
+                        }
+                                hp += -Time.deltaTime * Mathf.Sqrt(track.numberofTasks * .4f* hotdps); // trying out balancing .5f for constant
                                 if (hp <= 0)
                                 {
                                     active.sprite = hb0;

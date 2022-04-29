@@ -16,4 +16,6 @@ public class MainMenuMechanics : MonoBehaviour
         Application.Quit();
         
     }
+
+
 }

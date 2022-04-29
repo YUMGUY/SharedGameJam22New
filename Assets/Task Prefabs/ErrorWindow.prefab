@@ -433,4 +433,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpBarrefTask: {fileID: 0}
-  addHP: 5
+  addHP: 4

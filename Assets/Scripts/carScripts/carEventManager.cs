@@ -18,6 +18,8 @@ public class carEventManager : MonoBehaviour
     public bool phase1Fail = false;
     public bool phase2Fail = false;
 
+    [Header("Potential HP Gain")]
+    public NGHealthBar hpBarCarEvent;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -89,7 +91,7 @@ public class carEventManager : MonoBehaviour
         print("PHASE 2 HAS FINISHED, HURRAY, now wait 10 seconds");
 
 
-     
+        hpBarCarEvent.addHealth(20f);
         // maybe do a waiting period before the robot can move, so that FOR SURE cars are out of the way
         yield return new WaitForSeconds(10f);
         print("robot can move now");

@@ -20,12 +20,16 @@ public class Vic_or_Fail : MonoBehaviour
 
     // victory remove hud alpha
     public GameObject hudCanvas;
+    public GameObject taskCanvas;
+    public GameObject screenCanvas;
     private float durationH = 3f;
     private float timerH = 0;
     void Start()
     {
         rbtSound = GameObject.Find("Robot (PLAYER)");
         destFlag = GameObject.Find("Robot (PLAYER)").GetComponent<Rbt_Movement>();
+        taskCanvas = GameObject.Find("Task Canvas");
+        screenCanvas = GameObject.Find("Screen Canvas");
         hudCanvas = GameObject.FindGameObjectWithTag("hudCanvas");
         hpbarRefVicFail = GameObject.Find("HealthBar").GetComponent<NGHealthBar>();
     }
@@ -38,6 +42,8 @@ public class Vic_or_Fail : MonoBehaviour
             timerH += Time.deltaTime;
             this.transform.GetChild(0).gameObject.SetActive(true);
             hudCanvas.GetComponent<CanvasGroup>().alpha = Mathf.Lerp(1, 0, timerH / durationH);
+            taskCanvas.GetComponent<CanvasGroup>().alpha = Mathf.Lerp(1, 0, timerH / durationH);
+            screenCanvas.GetComponent<CanvasGroup>().alpha = Mathf.Lerp(1, 0, timerH / durationH);
         }
 
         if (hpbarRefVicFail.hp <= 0 && played == false)

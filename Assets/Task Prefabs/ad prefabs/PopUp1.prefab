@@ -90,6 +90,8 @@ GameObject:
   - component: {fileID: 2506591018904427827}
   - component: {fileID: 2506591018904427825}
   - component: {fileID: 2506591018904427826}
+  - component: {fileID: 1542250641768984003}
+  - component: {fileID: -8711795679634325908}
   m_Layer: 5
   m_Name: PopUp1
   m_TagString: ads
@@ -155,6 +157,32 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1542250641768984003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2506591018904427828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c38dea533bf3df744b3a5c2698461105, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-8711795679634325908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2506591018904427828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 047f839930b2ae248ba74051f954cc91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpBarrefTask: {fileID: 0}
+  addHP: 3
 --- !u!1 &2506591019041740085
 GameObject:
   m_ObjectHideFlags: 0
