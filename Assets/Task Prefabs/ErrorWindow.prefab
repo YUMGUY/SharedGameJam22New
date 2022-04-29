@@ -353,6 +353,7 @@ GameObject:
   - component: {fileID: 2644950627095334334}
   - component: {fileID: 2644950627095334332}
   - component: {fileID: 2644950627095334333}
+  - component: {fileID: 4848533588362136692}
   m_Layer: 5
   m_Name: ErrorWindow
   m_TagString: error
@@ -419,3 +420,17 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4848533588362136692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2644950627095334335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 047f839930b2ae248ba74051f954cc91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpBarrefTask: {fileID: 0}
+  addHP: 5

@@ -243,7 +243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpBarrefTask: {fileID: 0}
-  addHP: 5
+  addHP: 10
 --- !u!1 &7763355337818232327
 GameObject:
   m_ObjectHideFlags: 0
