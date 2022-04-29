@@ -47,7 +47,7 @@ public class NGHealthBar : MonoBehaviour
                     }
                     else
                     {
-                        hotdps = (100 - overheat.heat) / 10;
+                        hotdps = Mathf.Abs((100 - overheat.heat) / 10);
                                 hp += -Time.deltaTime * Mathf.Sqrt(track.numberofTasks * hotdps);
                                 if (hp <= 0)
                                 {
